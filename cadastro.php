@@ -67,15 +67,51 @@
                         </div>
                         <?php
                     }
+                    else{
+                        ?>
+                    <div class="msg-erro">
+                        <p>Email Já Cadastrado</p>
+                    </div>
+        
+                    <?php
+
+                    }
+                }
+                else
+                {
+                    ?>
+                    <div class="msg-erro">
+                        <p>Senha a Confirmar</p>
+                    </div>
+        
+                    <?php
                 }
 
 
             }
             else {
-                echo"bem amigos, terminou..." .$usuario->msgerro;
+               ?>
+                <div class="msg-erro">
+                    <?php echo "Erro:" .$usuario->msgerro;?>
+                </div>
+
+
+               <?php
             }
-        };
+        }
+        else
+        {
+            ?>
+                <div class="msg-erro">
+                    <p>preencha todos os campos.</p>
+                </div>
+
+
+
+            <?php
+        }
     }
+    
     
     
     ?>
