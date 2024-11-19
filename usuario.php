@@ -88,7 +88,7 @@ class Usuario
             return false;
         }
     }
-    public function excluirUsuario($id)
+    public function excluir_usu($id)
     {
         global $pdo;
         $sql = $pdo->prepare("DELETE FROM usuario WHERE id_usuario = :id");
