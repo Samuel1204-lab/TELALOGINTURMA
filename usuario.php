@@ -88,6 +88,22 @@ class Usuario
             return false;
         }
     }
+
+    public function listarUsuarioId($id)
+    {
+        global $pdo;
+        $sqllistar = $pdo->prepare("SELECT * FROM usuario WHERE id_usuario = $id");
+        $sqllistar->execute();
+        if ($sqllistar->rowCount() > 0) 
+        {
+            $dados = $sqllistar->fetch(PDO::FETCH_ASSOC);
+            return $dados;
+        }
+        else 
+        {
+            return false;
+        }
+    }
     public function excluir_usu($id)
     {
         global $pdo;
@@ -96,17 +112,19 @@ class Usuario
         return $sql->execute();
     }
  
-    public function editar_usu($id, $nome, $email, $telefone, $novoId)
+    public function editar_usu($id, $nome, $email, $telefone)
     {
         global $pdo;
-        $sql = $pdo->prepare("UPDATE usuario SET nome = :n, email = :e, telefone = :t, id_usuario = :idn WHERE id_usuario = :id");
+        $sql = $pdo->prepare("UPDATE usuario SET nome = :n, email = :e, telefone = :t WHERE id_usuario = :id");
         $sql->bindValue(":id", $id);
         $sql->bindValue(":n", $nome);
         $sql->bindValue(":e", $email);
         $sql->bindValue(":t", $telefone);
-        $sql->bindValue(":id", $id);
         return $sql->execute();
     }
+
+  
+    
 
     
 }

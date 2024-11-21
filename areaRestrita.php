@@ -14,14 +14,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+    <link rel="stylesheet" href="areaRestrita.css">
     <title>Listar Dados</title>
 </head>
 <body>
     <h1 class="listar-usuarios">LISTAR USUÁRIOS <span>CADASTRADOS</span></h1>
         <table class = "lista">
-            <thead>
-                <tr class="tabela">
+            <thead class="tabela">
+                <tr>
                     <th>Nome</th>
                     <th>Email</th>
                     <th>Telefone</th>
@@ -43,10 +43,14 @@
                         <td><?php echo $pessoa ['nome']; ?></td>
                         <td><?php echo $pessoa ['email']; ?></td>
                         <td><?php echo $pessoa ['telefone']; ?></td>
-                        <td><a href="editar_usuarios.php<?php echo $pessoa['id_usuario']; ?>"><button>Editar</button></a></td>
+                        <td><a href="editar_usuarios.php?id=<?php echo $pessoa['id_usuario']; ?>"><button>Editar</button></a></td>
+                        <td><a href="excluir_usuario.php?id=<?php echo $pessoa['id_usuario']; ?>"><button>Excluir</button></a></td>
  
                         
                      </tr>
+                     
+                
+                  
                      
                         
                 <?php
